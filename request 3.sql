@@ -4,9 +4,8 @@ sort them in descending order of product counts. The final output contains
 segment
 product_count
 */
-select p.segment,count(distinct(s.product_code)) as product_count
-from fact_sales_monthly s 
-join dim_product p 
-using(product_code)
-group by p.segment
+select segment , count(distinct product_code) AS product_count
+from dim_product
+group by segment
 order by product_count desc
+
